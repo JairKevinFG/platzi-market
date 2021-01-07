@@ -17,11 +17,12 @@ public class Compra {
     private String medioPago;
     private String comentario;
     private String estado;
+
     @ManyToOne
     @JoinColumn(name ="id_cliente",insertable = false, updatable = false)
     private Cliente cliente;
 
-    //productos de una compra
+    //me interesa desde la clase compra tener toda las lista de productos que pertenecen a una compra
     @OneToMany(mappedBy="producto")
     private List<ComprasProducto> productos;
 
