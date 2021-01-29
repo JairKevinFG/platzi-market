@@ -6,23 +6,29 @@ import java.util.List;
 @Entity
 @Table(name = "compras")
 public class Compra {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id_compra")
     private Integer idCompra;
+
     @Column(name ="id_cliente")
     private String idCLiente;
+
     private LocalDateTime fecha;
+
     @Column(name = "medio_pago")
     private String medioPago;
+
     private String comentario;
+
     private String estado;
 
     @ManyToOne
     @JoinColumn(name ="id_cliente",insertable = false, updatable = false)
     private Cliente cliente;
 
-    //me interesa desde la clase compra tener toda las lista de productos que pertenecen a una compra
+    //las lista de productos que pertenecen a una compra
     @OneToMany(mappedBy="producto")
     private List<ComprasProducto> productos;
 

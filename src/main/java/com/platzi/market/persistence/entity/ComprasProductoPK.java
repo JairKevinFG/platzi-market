@@ -1,16 +1,17 @@
 package com.platzi.market.persistence.entity;
-
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable // esta clase se va embeber dentro de la clase ComprasProducto
 public class ComprasProductoPK implements Serializable {
+
     @Column(name="id_compra")
     private Integer idCompra;
+
     @Column(name="id_producto")
     private Integer idProducto;
+
 
     public Integer getIdCompra() {
         return idCompra;

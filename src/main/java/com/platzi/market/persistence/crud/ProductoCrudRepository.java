@@ -10,21 +10,17 @@ import java.util.Optional;
 // recibe <la tabla , tipo de la clave primaria>
 // crearemos un repositorio para acceder a nuestra entidad producto
 //  que será el encargado de hacer nuestras consultas a la base de datos.
-public interface ProductoCrudRepository extends CrudRepository<Producto,Integer> {
 //heredaremos todos los metodos de crud repository
-
+public interface ProductoCrudRepository extends CrudRepository<Producto,Integer> {
 
     //nativo :
-    // @Query(value="SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true )
+  //  @Query(value="SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true )
 
     //con querymethods , lista de productos que pertenecen a una categoria , ordenados en orden alfabetico
     List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     //productos escasos  que esten activos
     Optional<List<Producto>> findByCantidadStockLessThanAAndEstado(int cantidadStock,boolean estado);
-
-
-
 
 
 }

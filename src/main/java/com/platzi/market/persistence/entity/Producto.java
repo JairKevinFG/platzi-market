@@ -1,5 +1,4 @@
 package com.platzi.market.persistence.entity;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -8,21 +7,28 @@ import java.math.BigDecimal;
 public class Producto {
     // no usar datos primitivos
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //se genera automaticamente cuando creemos un nuevo prod
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // id se genera automaticamente cuando creemos un nuevo prod:
     @Column(name ="id_producto")
     private Integer idProducto;
 
     private String nombre;
+
     @Column(name = "id_categoria")
     private Integer idCategoria;
+
     @Column(name ="codigo_barras")
     private String codigoBarras;
+
     @Column(name = "precio_venta")
     private BigDecimal precioVenta;
+
     @Column (name = "cantidad_stock")
     private Integer cantidadStock;
+
     private Boolean estado;
-    
+
+
+
     @ManyToOne
     @JoinColumn(name ="id_categoria",insertable = false , updatable = false )  // esto
     // significa que a través de esta relacion no vamos a borrar ni actualizar ninguna categoria ,
