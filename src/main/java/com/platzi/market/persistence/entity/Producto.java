@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "productos")
 public class Producto {
-    // no usar datos primitivos
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // id se genera automaticamente cuando creemos un nuevo prod:
-    @Column(name ="id_producto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto")
     private Integer idProducto;
 
     private String nombre;
@@ -16,27 +16,20 @@ public class Producto {
     @Column(name = "id_categoria")
     private Integer idCategoria;
 
-    @Column(name ="codigo_barras")
+    @Column(name = "codigo_barras")
     private String codigoBarras;
 
     @Column(name = "precio_venta")
-    private BigDecimal precioVenta;
+    private Double precioVenta;
 
-    @Column (name = "cantidad_stock")
+    @Column(name = "cantidad_stock")
     private Integer cantidadStock;
 
     private Boolean estado;
 
-
-
     @ManyToOne
-    @JoinColumn(name ="id_categoria",insertable = false , updatable = false )  // esto
-    // significa que a través de esta relacion no vamos a borrar ni actualizar ninguna categoria ,
-    // para hacerlo debemos hacerlo directamente en el entity categoria
-    // solo es para traer toda la inforamcion de la categoria a que la que pertenece el producto
-    private Categoria categoria; //
-
-
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
     public Integer getIdProducto() {
         return idProducto;
@@ -70,11 +63,11 @@ public class Producto {
         this.codigoBarras = codigoBarras;
     }
 
-    public BigDecimal getPrecioVenta() {
+    public Double getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(BigDecimal precioVenta) {
+    public void setPrecioVenta(Double precioVenta) {
         this.precioVenta = precioVenta;
     }
 
@@ -92,5 +85,13 @@ public class Producto {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

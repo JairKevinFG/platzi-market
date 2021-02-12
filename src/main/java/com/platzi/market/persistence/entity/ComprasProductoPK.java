@@ -3,29 +3,28 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-@Embeddable // esta clase se va embeber dentro de la clase ComprasProducto
-public class ComprasProductoPK implements Serializable {
+ // esta clase se va embeber dentro de la clase ComprasProducto
+ @Embeddable
+ public class ComprasProductoPK implements Serializable {
+     @Column(name = "id_compra")
+     private Integer idCompra;
 
-    @Column(name="id_compra")
-    private Integer idCompra;
+     @Column(name = "id_producto")
+     private Integer idProducto;
 
-    @Column(name="id_producto")
-    private Integer idProducto;
+     public Integer getIdCompra() {
+         return idCompra;
+     }
 
+     public void setIdCompra(Integer idCompra) {
+         this.idCompra = idCompra;
+     }
 
-    public Integer getIdCompra() {
-        return idCompra;
-    }
+     public Integer getIdProducto() {
+         return idProducto;
+     }
 
-    public void setIdCompra(Integer idCompra) {
-        this.idCompra = idCompra;
-    }
-
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
-    }
-}
+     public void setIdProducto(Integer idProducto) {
+         this.idProducto = idProducto;
+     }
+ }

@@ -6,7 +6,7 @@ public class Product {
     private String name;
     private int categoryId;
     private double price;
-    private int stock ;
+    private int stock;
     private boolean active;
     private Category category;
 
@@ -65,4 +65,5 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }
